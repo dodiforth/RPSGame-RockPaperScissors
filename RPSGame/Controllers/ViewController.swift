@@ -17,24 +17,32 @@ class ViewController: UIViewController {
     @IBOutlet weak var cpuChoiceLabel: UILabel!
     @IBOutlet weak var userChoiceLabel: UILabel!
     
-    
     @IBOutlet weak var scissorsBtn: UIButton!
     @IBOutlet weak var rockBtn: UIButton!
     @IBOutlet weak var paperBtn: UIButton!
     
+    // an instance to mange business
+    var rpsManager = RPSManager()
+    
     var myChoice: Rps = Rps(rawValue: Int.random(in: 0...2))!
     var cpuChoice: Rps = Rps(rawValue: Int.random(in: 0...2))!
-    
     var config = UIButton.Configuration.filled()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureUI()
+    }
+    
+    func configureUI() {
+        
         //1) load "ready" image on the tow imageViews
-        cpuImageView.image = #imageLiteral(resourceName: "ready")
-        userImageView.image = UIImage(named: "ready")
+        cpuImageView.image = rpsManager.getReady().rpsInfo.image
+        userImageView.image = rpsManager.getReady().rpsInfo.image
+        
         //2) load "ready" word on cpu and user ChoiceLabel.
-        cpuChoiceLabel.text = "Ready"
-        userChoiceLabel.text = "Ready"
+        cpuChoiceLabel.text = rpsManager.getReady().rpsInfo.name
+        userChoiceLabel.text = rpsManager.getReady().rpsInfo.name
     }
 
     

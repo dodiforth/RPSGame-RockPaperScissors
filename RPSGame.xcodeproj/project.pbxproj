@@ -14,6 +14,7 @@
 		3BD7E91D2A50629700572C72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BD7E91C2A50629700572C72 /* Assets.xcassets */; };
 		3BD7E9202A50629700572C72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BD7E91E2A50629700572C72 /* LaunchScreen.storyboard */; };
 		3BD7E9282A50932E00572C72 /* Rps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD7E9272A50932E00572C72 /* Rps.swift */; };
+		3BD7E9D02A6AC20800572C72 /* RPSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD7E9CF2A6AC20800572C72 /* RPSManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		3BD7E91F2A50629700572C72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3BD7E9212A50629700572C72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BD7E9272A50932E00572C72 /* Rps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rps.swift; sourceTree = "<group>"; };
+		3BD7E9CF2A6AC20800572C72 /* RPSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,14 +62,39 @@
 			children = (
 				3BD7E9132A50629600572C72 /* AppDelegate.swift */,
 				3BD7E9152A50629600572C72 /* SceneDelegate.swift */,
-				3BD7E9272A50932E00572C72 /* Rps.swift */,
-				3BD7E9172A50629600572C72 /* ViewController.swift */,
-				3BD7E9192A50629600572C72 /* Main.storyboard */,
+				3BD7E9CE2A6AC1DA00572C72 /* Models */,
+				3BD7E9CD2A6AC1D400572C72 /* Views */,
+				3BD7E9CC2A6AC1CB00572C72 /* Controllers */,
 				3BD7E91C2A50629700572C72 /* Assets.xcassets */,
 				3BD7E91E2A50629700572C72 /* LaunchScreen.storyboard */,
 				3BD7E9212A50629700572C72 /* Info.plist */,
 			);
 			path = RPSGame;
+			sourceTree = "<group>";
+		};
+		3BD7E9CC2A6AC1CB00572C72 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3BD7E9172A50629600572C72 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3BD7E9CD2A6AC1D400572C72 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3BD7E9192A50629600572C72 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3BD7E9CE2A6AC1DA00572C72 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3BD7E9272A50932E00572C72 /* Rps.swift */,
+				3BD7E9CF2A6AC20800572C72 /* RPSManager.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +172,7 @@
 				3BD7E9282A50932E00572C72 /* Rps.swift in Sources */,
 				3BD7E9142A50629600572C72 /* AppDelegate.swift in Sources */,
 				3BD7E9162A50629600572C72 /* SceneDelegate.swift in Sources */,
+				3BD7E9D02A6AC20800572C72 /* RPSManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
