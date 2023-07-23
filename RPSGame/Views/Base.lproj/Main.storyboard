@@ -181,9 +181,6 @@
                         <outlet property="cpuChoiceLabel" destination="yRc-c3-TBz" id="gaN-DP-CV1"/>
                         <outlet property="cpuImageView" destination="3It-tK-XmR" id="PqY-x3-NTC"/>
                         <outlet property="mainLabel" destination="Ovq-MT-OTK" id="kQL-gh-jog"/>
-                        <outlet property="paperBtn" destination="n77-CE-JG3" id="K97-vT-n1B"/>
-                        <outlet property="rockBtn" destination="gQY-nA-DbT" id="9jq-4D-aQZ"/>
-                        <outlet property="scissorsBtn" destination="6vM-7V-bhW" id="VB8-LR-eSW"/>
                         <outlet property="userChoiceLabel" destination="cS2-0S-KOL" id="XnV-j9-pMj"/>
                         <outlet property="userImageView" destination="h7J-or-h8G" id="GY3-Gx-ElL"/>
                     </connections>

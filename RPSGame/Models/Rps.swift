@@ -22,7 +22,7 @@ enum Rps: Int {
         case .rock:
             return (#imageLiteral(resourceName: "rock"), "rock")
         case .paper:
-            return (#imageLiteral(resourceName: "paper"), "보")
+            return (#imageLiteral(resourceName: "paper"), "paper")
         case .scissors:
             return (#imageLiteral(resourceName: "scissors"), "가위")
         }

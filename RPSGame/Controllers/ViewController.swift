@@ -17,16 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var cpuChoiceLabel: UILabel!
     @IBOutlet weak var userChoiceLabel: UILabel!
     
-    @IBOutlet weak var scissorsBtn: UIButton!
-    @IBOutlet weak var rockBtn: UIButton!
-    @IBOutlet weak var paperBtn: UIButton!
-    
     // an instance to mange business
     var rpsManager = RPSManager()
-    
-    var myChoice: Rps = Rps(rawValue: Int.random(in: 0...2))!
-    var cpuChoice: Rps = Rps(rawValue: Int.random(in: 0...2))!
-    var config = UIButton.Configuration.filled()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,74 +40,32 @@ class ViewController: UIViewController {
     
     @IBAction func rpsButtonTapped(_ sender: UIButton) {
         
-        // store the info of which button has been tapped
-//        guard let title = sender.currentTitle else {
-//            return
-//        }
+        // store the info of which selection(rock/paper/scissors) has been tapped ⭐️
         
-//        let title = (sender as AnyObject).currentTitle
-        let title = sender.currentTitle
-        
+        // bring value(title) of the pressed button
+        guard let title = sender.currentTitle else { return }
+        //let title = sender.currentTitle!
         print(title)
         
-        sender.configuration?.baseBackgroundColor = .systemGreen
         
-        switch title {
-        case "ROCK" :
-            myChoice = Rps.rock
-        case "PAPER" :
-            myChoice = Rps.paper
-        case "SCISSORS" :
-            myChoice = Rps.scissors
-        default :
-            break
+        rpsManager.userGetSelected(name: title)
+        
         }
-        
-    }
     
     
     @IBAction func selectButtonTapped(_ sender: UIButton) {
         // 1) load computer's random choice on cpu's imageView
         // 2) load computer's random choice on cpu's ChoiceLabel
-        switch cpuChoice {
-        case Rps.rock :
-            cpuImageView.image = #imageLiteral(resourceName: "rock")
-            cpuChoiceLabel.text = "ROCK"
-        case Rps.paper :
-            cpuImageView.image = #imageLiteral(resourceName: "paper")
-            cpuChoiceLabel.text = "PAPER"
-        case Rps.scissors :
-            cpuImageView.image = #imageLiteral(resourceName: "scissors")
-            cpuChoiceLabel.text = "SCISSORS"
-        }
+        cpuImageView.image = rpsManager.getComputerRPS().rpsInfo.image
+        cpuChoiceLabel.text = rpsManager.getComputerRPS().rpsInfo.name
         
         // 3) load user's random choice on user's imageView
         // 4) load user's random choice on user's ChoiceLabel
-        switch myChoice {
-        case Rps.rock :
-            userImageView.image = #imageLiteral(resourceName: "rock")
-            userChoiceLabel.text = "ROCK"
-        case Rps.paper :
-            userImageView.image = #imageLiteral(resourceName: "paper")
-            userChoiceLabel.text = "PAPER"
-        case Rps.scissors :
-            userImageView.image = #imageLiteral(resourceName: "scissors")
-            userChoiceLabel.text = "SCISSORS"
-        }
+        userImageView.image = rpsManager.getUserRPS().rpsInfo.image
+        userChoiceLabel.text = rpsManager.getUserRPS().rpsInfo.name
         
         // 5) Compare cpu's choice and user's choice and show it on mainLabel
-        if cpuChoice == myChoice {
-            mainLabel.text = "DRAW!"
-        } else if cpuChoice == .rock && myChoice == .paper {
-            mainLabel.text = "YOU WIN!"
-        } else if cpuChoice == .paper && myChoice == .scissors {
-            mainLabel.text = "YOU WIN!"
-        } else if cpuChoice == .scissors && myChoice == .rock {
-            mainLabel.text = "YOU WIN!"
-        } else {
-            mainLabel.text = "YOU LOST"
-        }
-        
+        mainLabel.text = rpsManager.getRpsResult()
     }
     
     
@@ -123,24 +73,19 @@ class ViewController: UIViewController {
         
         // 1) load ready on cpu's imageView
         // 2) load ready on cpu's ChoiceLabel
-        cpuImageView.image = #imageLiteral(resourceName: "ready")
-        cpuChoiceLabel.text = "READY"
+        cpuImageView.image = rpsManager.getReady().rpsInfo.image
+        cpuChoiceLabel.text = rpsManager.getReady().rpsInfo.name
         
         // 3) load ready user's imageView
         // 4) load ready on user's ChoiceLabel
-        userImageView.image = #imageLiteral(resourceName: "ready")
-        userChoiceLabel.text = "READY"
+        userImageView.image = rpsManager.getReady().rpsInfo.image
+        userChoiceLabel.text = rpsManager.getReady().rpsInfo.name
         
         // 5) mainLabel's string = "CHOOSE"
         mainLabel.text = "CHOOSE"
         
         // 6) let computer select R/P/S and store the info
-        cpuChoice = Rps(rawValue: Int.random(in: 0...2))!
-        myChoice = Rps(rawValue: Int.random(in: 0...2))!
-
-        scissorsBtn.configuration?.baseBackgroundColor = .systemBlue
-        rockBtn.configuration?.baseBackgroundColor = .systemBlue
-        paperBtn.configuration?.baseBackgroundColor = .systemBlue
+        rpsManager.allReset()
         
     }
     
