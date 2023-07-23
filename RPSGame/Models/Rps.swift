@@ -24,7 +24,7 @@ enum Rps: Int {
         case .paper:
             return (#imageLiteral(resourceName: "paper"), "paper")
         case .scissors:
-            return (#imageLiteral(resourceName: "scissors"), "가위")
+            return (#imageLiteral(resourceName: "scissors"), "scissors")
         }
     }
 }
